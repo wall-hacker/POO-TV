@@ -8,11 +8,11 @@ import lombok.Setter;
 import java.util.ArrayList;
 
 public class CurrentPage {
-    @Getter @Setter
-    private String name;
-    @Getter @Setter
+    @Setter
     private Input input;
     @Getter @Setter
+    private String name;
+    @Getter
     private ArrayList<Movie> moviesList;
     @Getter @Setter
     private Movie currentMovie;
