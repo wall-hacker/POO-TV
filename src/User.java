@@ -3,14 +3,14 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
-public class User {
+final class User {
 
     @Getter @Setter
     private Credentials credentials;
     @Getter @Setter
     private int tokensCount;
     @Getter @Setter
-    private int numFreePremiumMovies = 15;
+    private int numFreePremiumMovies = 2 * 2 * 2 * 2 - 1;
     @Getter @Setter
     private ArrayList<Movie> purchasedMovies = new ArrayList();
     @Getter @Setter
@@ -20,9 +20,9 @@ public class User {
     @Getter @Setter
     private ArrayList<Movie> ratedMovies = new ArrayList();
 
-    public User() {
+    User() {
     }
-    public User(User currentUser) {
+    User(final User currentUser) {
         this.credentials = new Credentials();
         this.credentials.setName(currentUser.getCredentials().getName());
         this.credentials.setAccountType(currentUser.getCredentials().getAccountType());
@@ -40,7 +40,7 @@ public class User {
         this.ratedMovies = new ArrayList();
         this.ratedMovies.addAll(currentUser.ratedMovies);
     }
-    public User(Credentials credentials) {
+    User(final Credentials credentials) {
         this.credentials = new Credentials();
         this.credentials.setName(credentials.getName());
         this.credentials.setAccountType(credentials.getAccountType());
@@ -52,13 +52,19 @@ public class User {
         this.likedMovies = new ArrayList();
         this.ratedMovies = new ArrayList();
         this.tokensCount = 0;
-        this.numFreePremiumMovies = 15;
+        this.numFreePremiumMovies = 2 * 2 * 2 * 2 - 1;
     }
 
+    /**
+     * method that decrements the number of available free premium movies
+     */
     public void decrementNumFreePremiumMovies() {
-        --this.numFreePremiumMovies;
+        this.numFreePremiumMovies--;
     }
 
+    /**
+     * method that decrements the current number of tokens of a user
+     */
     public void decrementTokensCount(final int numTokens) {
         this.tokensCount -= numTokens;
     }

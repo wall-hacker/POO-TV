@@ -1,7 +1,7 @@
 import lombok.Getter;
 import lombok.Setter;
 
-public class CurrentUser {
+final class CurrentUser {
     private static CurrentUser currentUser = null;
     @Getter @Setter
     private User user;

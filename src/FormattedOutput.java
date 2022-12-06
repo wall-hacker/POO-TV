@@ -4,7 +4,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FormatedOutput {
+public class FormattedOutput {
     @Getter @Setter
     private String error;
     @Getter @Setter
@@ -12,20 +12,21 @@ public class FormatedOutput {
     @Getter @Setter
     private User currentUser;
 
-    public FormatedOutput() {
+    public FormattedOutput() {
         this.error = "Error";
         this.currentMoviesList = new ArrayList<Movie>();
         this.currentUser = null;
     }
 
-    public FormatedOutput(List<Movie> currentMoviesList, User currentUser) {
+    public FormattedOutput(final List<Movie> currentMoviesList, final User currentUser) {
         this.currentMoviesList = new ArrayList<Movie>();
-        for(Movie movie : currentMoviesList)
+        for (Movie movie : currentMoviesList) {
             this.currentMoviesList.add(new Movie(movie));
+        }
         this.currentUser = new User(currentUser);
     }
 
-    public FormatedOutput(User currentUser, Movie movie) {
+    public FormattedOutput(final User currentUser, final Movie movie) {
         this.currentUser = new User(currentUser);
         this.currentMoviesList = new ArrayList<Movie>();
         this.currentMoviesList.add(new Movie(movie));

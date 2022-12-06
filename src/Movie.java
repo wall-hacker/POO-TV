@@ -3,7 +3,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
-public class Movie {
+final class Movie {
     @Getter @Setter
     private String name;
     @Getter @Setter
@@ -19,15 +19,14 @@ public class Movie {
     @Getter @Setter
     private int numLikes;
     @Getter @Setter
-    private Integer rating;
+    private Integer rating = 0;
     @Getter @Setter
     private int numRatings;
 
-    public Movie() {
-        this.rating = 0;
+    Movie() {
     }
 
-    public Movie(Movie movie) {
+    Movie(final Movie movie) {
         this.name = movie.name;
         this.year = movie.year;
         this.duration = movie.duration;
@@ -42,9 +41,15 @@ public class Movie {
         this.numRatings = movie.numRatings;
     }
 
+    /**
+     * method that increments the number of likes
+     */
     public void incrementNumLikes() {
         this.numLikes++;
     }
+    /**
+     * method that increments the number of ratings
+     */
     public void incrementNumRatings() {
         this.numRatings++;
     }

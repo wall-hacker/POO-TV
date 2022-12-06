@@ -2,7 +2,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CurrentPage {
     @Getter @Setter
@@ -14,16 +13,24 @@ public class CurrentPage {
     @Getter @Setter
     private Movie currentMovie;
 
-    public CurrentPage(String name, Input input) {
-        this.input = input;
-        this.name = name;
+    public CurrentPage(final String newName, final Input newInput) {
+        this.input = newInput;
+        this.name = newName;
     }
 
+    /**
+     * input getter
+     * @return
+     */
     public Input getInput() {
-        return this.input;
+        return input;
     }
 
-    public void setMoviesList(List<Movie> moviesList) {
+    /**
+     * Singleton-like setter for the movieList array
+     * @param moviesList
+     */
+    public void setMoviesList(final ArrayList<Movie> moviesList) {
         if (moviesList != null) {
             this.moviesList = new ArrayList(moviesList);
         } else {
@@ -31,9 +38,16 @@ public class CurrentPage {
         }
     }
 
-    public void setCurrentPage(String name, Movie currentMovie, ArrayList<Movie> moviesList) {
-        this.setName(name);
-        this.setCurrentMovie(currentMovie);
-        this.setMoviesList(moviesList);
+    /**
+     * method that sets all the parameters of a current page at once
+     * @param newName
+     * @param newCurrentMovie
+     * @param newMoviesList
+     */
+    public void setCurrentPage(final String newName, final Movie newCurrentMovie,
+                               final ArrayList<Movie> newMoviesList) {
+        this.setName(newName);
+        this.setCurrentMovie(newCurrentMovie);
+        this.setMoviesList(newMoviesList);
     }
 }

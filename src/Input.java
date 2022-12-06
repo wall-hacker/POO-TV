@@ -4,7 +4,6 @@ import lombok.Setter;
 import java.util.ArrayList;
 
 public class Input {
-    private static Input input = null;
     @Getter @Setter
     private ArrayList<User> users;
     @Getter @Setter
@@ -12,14 +11,11 @@ public class Input {
     @Getter @Setter
     private ArrayList<Action> actions;
 
-    public static Input getInput() {
-        if (input == null) {
-            input = new Input();
-        }
-        return input;
-    }
-
-    public void addUser(User user) {
+    /**
+     * method that adds a user to the main "database"
+     * @param user
+     */
+    public void addUser(final User user) {
         users.add(user);
     }
 }
