@@ -127,9 +127,9 @@ abstract class OnPageAction {
                 }
                 if (sort.getRating() != null && sort.getDuration() == null) {
                     if (sort.getRating().equals("increasing")) {
-                        movies.sort(Comparator.comparingInt(Movie::getRating));
+                        movies.sort(Comparator.comparingDouble(Movie::getRating));
                     } else {
-                        movies.sort(Comparator.comparingInt(Movie::getRating).reversed());
+                        movies.sort(Comparator.comparingDouble(Movie::getRating).reversed());
                     }
                 }
             }
@@ -287,7 +287,7 @@ abstract class OnPageAction {
                             final CurrentUser currentUser, final ArrayNode output) {
         if (currentPage.getName().equals("see details")) {
             Movie currentMovie = currentPage.getCurrentMovie();
-            int rating = action.getRate();
+            double rating = action.getRate();
 
             int watched = 0;
             ArrayList<Movie> watchedMovies = currentUser.getUser().getWatchedMovies();
@@ -308,7 +308,7 @@ abstract class OnPageAction {
             }
 
             if (watched == 1 && rated == 0 && (rating <= (2 * 2 + 1) && rating >= 1)) {
-                int movieRating = currentMovie.getRating();
+                double movieRating = currentMovie.getRating();
                 int movieNumRatings = currentMovie.getNumRatings();
                 currentMovie.setRating((movieRating * movieNumRatings + rating)
                         / (movieNumRatings + 1));

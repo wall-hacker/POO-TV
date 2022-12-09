@@ -21,7 +21,7 @@ public final class Movie {
     @Getter @Setter
     private int numLikes;
     @Getter @Setter
-    private Integer rating = 0;
+    private double rating = 0;
     @Getter @Setter
     private int numRatings;
 

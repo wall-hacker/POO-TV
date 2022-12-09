@@ -19,15 +19,13 @@ public class Action {
     @Getter @Setter
     private Filter filters;
     @Getter @Setter
-    private String objectType;
-    @Getter @Setter
     private ArrayList<Movie> movies;
     @Getter @Setter
     private String count;
     @Getter @Setter
     private String movie;
     @Getter @Setter
-    private Integer rate;
+    private double rate;
 
     public Action() {
     }
